@@ -75,33 +75,36 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
+            //added toLowerCase to both avalue and value to make the search case insensitive.
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
-
         return jobs;
     }
 
-    public static ArrayList<HashMap<String,String>> findByValue(String value) {
+    public static ArrayList<HashMap<String, String>> findByValue (String value) {
 
+        // load data, if not already loaded
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-
         for (HashMap<String, String> row : allJobs) {
-
-            for (String entry : row.values()) {
-                if (entry.toLowerCase().contains(value.toLowerCase())) {
-                    if (!jobs.contains(value)) {
+            //iterate over each row of values
+            for (String search : row.values()){
+                //if statement checks the row values to see if the search input is there
+                //if statement will also switch the search entry and values to lowercase to make the
+                //search case insensitvie.
+                if (search.toLowerCase().contains(value.toLowerCase())){
+                    if (!jobs.contains(value)){
                         jobs.add(row);
                         break;
                     }
                 }
             }
-        }
+            }
         return jobs;
     }
 
