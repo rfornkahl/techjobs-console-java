@@ -109,10 +109,7 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-
-
         //begin if statement to make sure more than one entry exists in the arrayList someJobs
-
         if (someJobs.size() >= 1){
             //if someJobs is greater than or equal to one we will iterate over the arrayList someJobs
             for (int i=0; i < someJobs.size(); i++) {
